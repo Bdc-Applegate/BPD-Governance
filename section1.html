@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <title>Section 1: Administrative Dissolution — Bridgepoint Ditch Co.</title>
+  <style>
+    :root {
+      --blue: #1a3a5c;
+      --blue-light: #2a5080;
+      --accent: #c8902a;
+      --bg: #f5f3ef;
+      --white: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: #d1cec8;
+      --red: #b91c1c;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+    /* ── PASSWORD GATE ── */
+    #gate {
+      position: fixed; inset: 0;
+      background: var(--blue);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.4s;
+    }
+    #gate.hidden { opacity: 0; pointer-events: none; }
+    .gate-box {
+      background: white; border-radius: 4px; padding: 48px 40px;
+      max-width: 400px; width: 90%; text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    .gate-box h1 { font-size: 1.1rem; color: var(--blue); margin-bottom: 8px; }
+    .gate-box p { font-size: 0.85rem; color: var(--muted); margin-bottom: 24px; font-family: sans-serif; }
+    .gate-box input {
+      width: 100%; padding: 12px; border: 2px solid var(--border); border-radius: 4px;
+      font-size: 1.1rem; text-align: center; letter-spacing: 0.2em; margin-bottom: 12px;
+      font-family: monospace; outline: none;
+    }
+    .gate-box input:focus { border-color: var(--blue); }
+    .gate-box button {
+      width: 100%; padding: 12px; background: var(--blue); color: white; border: none;
+      border-radius: 4px; font-size: 1rem; cursor: pointer; font-family: sans-serif; font-weight: 600;
+    }
+    .gate-box button:hover { background: var(--blue-light); }
+    .gate-error { color: var(--red); font-size: 0.85rem; margin-top: 10px; font-family: sans-serif; display: none; }
+
+    /* ── SITE ── */
+    #site { display: none; }
+
+    header {
+      background: var(--blue); color: white; padding: 0 24px;
+      display: flex; align-items: center; border-bottom: 3px solid var(--accent);
+    }
+    header .logo-area { padding: 14px 0; flex: 1; }
+    header h1 { font-size: 1rem; font-weight: normal; }
+    header p { font-size: 0.75rem; color: rgba(255,255,255,0.6); margin-top: 2px; font-family: sans-serif; }
+    .confidential-badge {
+      background: var(--accent); color: white; padding: 4px 12px; border-radius: 2px;
+      font-size: 0.7rem; font-family: sans-serif; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    }
+
+    .breadcrumb {
+      background: white; border-bottom: 1px solid var(--border);
+      padding: 10px 24px; font-family: sans-serif; font-size: 0.82rem; color: var(--muted);
+    }
+    .breadcrumb a { color: var(--blue); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+
+    main { max-width: 860px; margin: 0 auto; padding: 36px 24px 80px; }
+
+    .section-header {
+      margin-bottom: 28px;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 20px;
+    }
+    .section-num {
+      font-family: sans-serif; font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.15em; color: var(--accent); text-transform: uppercase; margin-bottom: 6px;
+    }
+    .section-header h2 { font-size: 1.7rem; color: var(--blue); font-weight: normal; }
+
+    .summary-box {
+      background: white; border: 1px solid var(--border); border-left: 4px solid var(--blue);
+      padding: 24px 28px; margin-bottom: 36px; border-radius: 2px;
+    }
+    .summary-box h3 {
+      font-family: sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 12px;
+    }
+    .summary-box p { line-height: 1.75; color: var(--text); margin-bottom: 10px; }
+    .summary-box p:last-child { margin-bottom: 0; }
+
+    .docs-section h3 {
+      font-family: sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 14px; padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .doc-item {
+      background: white; border: 1px solid var(--border); border-radius: 2px;
+      padding: 18px 20px; margin-bottom: 12px;
+      display: flex; align-items: flex-start; gap: 16px;
+    }
+    .doc-icon {
+      width: 40px; height: 40px; border-radius: 4px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 20px;
+    }
+    .doc-icon.pdf { background: #fee2e2; }
+    .doc-icon.img { background: #dbeafe; }
+    .doc-icon.vid { background: #d1fae5; }
+    .doc-icon.email { background: #ede9fe; }
+
+    .doc-info { flex: 1; }
+    .doc-info .doc-title { font-weight: bold; color: var(--blue); font-size: 0.95rem; margin-bottom: 4px; }
+    .doc-info .doc-desc { font-family: sans-serif; font-size: 0.82rem; color: var(--muted); line-height: 1.4; }
+    .doc-action { margin-top: 10px; }
+    .btn-view {
+      display: inline-block; padding: 7px 16px; background: var(--blue); color: white;
+      text-decoration: none; border-radius: 3px; font-family: sans-serif; font-size: 0.8rem;
+      font-weight: 600; transition: background 0.2s; margin-right: 8px;
+    }
+    .btn-view:hover { background: var(--blue-light); }
+    .btn-download {
+      display: inline-block; padding: 7px 16px; border: 1px solid var(--border); color: var(--muted);
+      text-decoration: none; border-radius: 3px; font-family: sans-serif; font-size: 0.8rem;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-download:hover { border-color: var(--blue); color: var(--blue); }
+
+    /* PDF Embed */
+    .pdf-embed-container {
+      background: white; border: 1px solid var(--border); border-radius: 2px; margin-bottom: 12px; overflow: hidden;
+    }
+    .pdf-embed-header {
+      background: #f8f7f5; border-bottom: 1px solid var(--border); padding: 10px 16px;
+      font-family: sans-serif; font-size: 0.82rem; color: var(--muted); display: flex; justify-content: space-between;
+    }
+    .pdf-embed-container iframe { width: 100%; height: 500px; border: none; display: block; }
+    .pdf-fallback { padding: 24px; text-align: center; font-family: sans-serif; font-size: 0.85rem; color: var(--muted); }
+    .pdf-fallback a { color: var(--blue); }
+
+    /* Image viewer */
+    .img-embed { width: 100%; border-radius: 2px; display: block; cursor: zoom-in; }
+    .img-embed:hover { opacity: 0.95; }
+
+    /* Video */
+    .vid-embed { width: 100%; border-radius: 2px; display: block; }
+
+    /* Nav */
+    .page-nav {
+      display: flex; gap: 12px; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border);
+      font-family: sans-serif; flex-wrap: wrap;
+    }
+    .nav-btn {
+      padding: 10px 20px; border: 1px solid var(--border); border-radius: 3px; text-decoration: none;
+      color: var(--blue); font-size: 0.85rem; transition: all 0.2s;
+    }
+    .nav-btn:hover { background: var(--blue); color: white; border-color: var(--blue); }
+    .nav-btn.home { background: var(--blue); color: white; border-color: var(--blue); }
+    .nav-btn.home:hover { background: var(--blue-light); }
+
+    footer {
+      text-align: center; padding: 24px; font-family: sans-serif; font-size: 0.78rem;
+      color: var(--muted); border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+<div id="gate">
+  <div class="gate-box">
+    <h1>Bridgepoint Ditch Company</h1>
+    <p>Members-only access. Enter your access code.</p>
+    <input type="password" id="pwd" placeholder="Access Code" autocomplete="off">
+    <button onclick="checkPassword()">Enter</button>
+    <div class="gate-error" id="err">Incorrect access code.</div>
+  </div>
+</div>
+
+<div id="site">
+  <header>
+    <div class="logo-area">
+      <h1>Bridgepoint Ditch Company</h1>
+      <p>Governance Documentation — Members Only</p>
+    </div>
+    <span class="confidential-badge">Confidential</span>
+  </header>
+
+  <div class="breadcrumb">
+    <a href="index.html">← Back to Overview</a> &nbsp;/&nbsp; Section 1
+  </div>
+
+  <main>
+    <div class="section-header">
+      <div class="section-num">Section 1 of 8</div>
+      <h2>Administrative Dissolution</h2>
+    </div>
+
+    <div class="summary-box">
+      <h3>Factual Summary</h3>
+      <p>The Bridgepoint Ditch Company, organized as a nonprofit mutual irrigation company under Oregon law, was allowed to lapse into administrative dissolution due to failure to file required annual reports with the Oregon Secretary of State. This occurred despite the President's responsibility to maintain the company's corporate standing.</p>
+      <p>Administrative dissolution means the company temporarily lost its legal status as a corporation, exposing members to potential personal liability and invalidating certain corporate actions taken during the period of dissolution. The documents below show the state records of dissolution and the subsequent reinstatement filings.</p>
+      <p><em>Replace this placeholder text with your specific factual summary for this section.</em></p>
+    </div>
+
+    <div class="docs-section">
+      <h3>Supporting Documents</h3>
+
+      <!-- ══ DOCUMENT EXAMPLE 1: PDF ══
+           To add your own PDF:
+           1. Upload the PDF file to your GitHub repository (in a folder called "docs/")
+           2. Change "docs/your-file.pdf" below to the actual filename
+           3. Update the title and description
+      -->
+      <div class="doc-item">
+        <div class="doc-icon pdf">📄</div>
+        <div class="doc-info">
+          <div class="doc-title">Oregon Secretary of State — Dissolution Notice</div>
+          <div class="doc-desc">Official state record showing the date and basis of administrative dissolution of Bridgepoint Ditch Company.</div>
+          <div class="doc-action">
+            <a href="docs/dissolution-notice.pdf" target="_blank" class="btn-view">View Document</a>
+            <a href="docs/dissolution-notice.pdf" download class="btn-download">Download</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ DOCUMENT EXAMPLE 2: PDF embedded inline ══ -->
+      <div class="pdf-embed-container">
+        <div class="pdf-embed-header">
+          <span>📄 Reinstatement Filing — Oregon SOS</span>
+          <a href="docs/reinstatement-filing.pdf" target="_blank" style="color:var(--blue);">Open in new tab ↗</a>
+        </div>
+        <!-- Replace "docs/reinstatement-filing.pdf" with your actual filename -->
+        <iframe src="docs/reinstatement-filing.pdf" title="Reinstatement Filing">
+          <div class="pdf-fallback">
+            Your browser cannot display this PDF inline.
+            <a href="docs/reinstatement-filing.pdf" target="_blank">Click here to open it.</a>
+          </div>
+        </iframe>
+      </div>
+
+      <!-- ══ DOCUMENT EXAMPLE 3: Image ══ -->
+      <div class="doc-item">
+        <div class="doc-icon img">🖼️</div>
+        <div class="doc-info">
+          <div class="doc-title">Screenshot — Oregon Business Registry Record</div>
+          <div class="doc-desc">Screenshot of the Oregon Secretary of State business registry showing dissolution status and dates.</div>
+          <div class="doc-action">
+            <!-- Replace "docs/registry-screenshot.png" with your actual filename -->
+            <img src="docs/registry-screenshot.png" alt="Oregon Business Registry Screenshot" class="img-embed" style="margin-top:12px; max-width:100%;">
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /docs-section -->
+
+    <div class="page-nav">
+      <a href="index.html" class="nav-btn home">↩ Overview</a>
+      <a href="section2.html" class="nav-btn">Section 2: Invoicing Violations →</a>
+    </div>
+  </main>
+
+  <footer>
+    Bridgepoint Ditch Company — Member Governance Documentation &nbsp;|&nbsp; Private &amp; Confidential
+  </footer>
+</div>
+
+<script>
+  const ACCESS_CODE = "BDC2024"; // ← Must match index.html
+
+  if (sessionStorage.getItem("bdc_unlocked") === "yes") {
+    document.getElementById("gate").style.display = "none";
+    document.getElementById("site").style.display = "block";
+  }
+
+  function checkPassword() {
+    const val = document.getElementById("pwd").value.trim();
+    if (val === ACCESS_CODE) {
+      sessionStorage.setItem("bdc_unlocked", "yes");
+      document.getElementById("gate").classList.add("hidden");
+      setTimeout(() => {
+        document.getElementById("gate").style.display = "none";
+        document.getElementById("site").style.display = "block";
+      }, 400);
+    } else {
+      document.getElementById("err").style.display = "block";
+      document.getElementById("pwd").value = "";
+      document.getElementById("pwd").focus();
+    }
+  }
+  document.getElementById("pwd").addEventListener("keydown", e => { if (e.key === "Enter") checkPassword(); });
+  document.getElementById("pwd").focus();
+</script>
+</body>
+</html>
